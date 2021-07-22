@@ -16,7 +16,7 @@ fetch("userinfo", {
     method: "get",
 }).then(data=>{
     console.log(data);
-    return response.json();
+    return data.json();
 }).then(r =>{
     console.log(r);
     nameInput.value = r.name;

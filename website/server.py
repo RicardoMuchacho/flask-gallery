@@ -7,16 +7,16 @@ import psycopg2
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5433/Gallery'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5433/Gallery'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config["IMAGE_UPLOADS"] = "static/uploads"
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://cpngxthlpwbget:04731ba3522d50066c5245d50ec32b3270cc7ddc384e6da62674d9ebe0b588c3@ec2-35-171-250-21.compute-1.amazonaws.com:5432/dekih7lblmdn7i'
 
 def allowed_image(filename):
 
@@ -110,8 +110,13 @@ def get_userinfo():
 
 @app.route('/images', methods=['GET']) 
 def get_image():
+    path = os.getcwd()+"/website/static/uploads"
+    files = []
+
+    for filename in os.listdir(path):
+      files.append(filename)
     #print('display_image filename: ' + filename)\
-    files = os.listdir('static/uploads')
+    #files = os.listdir(app.config["IMAGE_UPLOADS"])
     print(files)
     data = {'images': files}
     return jsonify(data)
@@ -130,8 +135,8 @@ def upload_image():
 
         if allowed_image(image.filename):
             filename = secure_filename(image.filename)
-        
-            image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+            print(filename)
+            image.save(os.getcwd()+"/website/static/uploads/" + filename)
             create_image(session['userid'], filename)
             print("Image saved")
 
