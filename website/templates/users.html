@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <link href="static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles/styleUsers.css">
+</head>
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-1 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="home">Flask Gallery</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">User</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a id="signOut" class="nav-link" href="signout">Sign out</a>
+      </li>
+    </ul>
+  </header>
+<body>
+<div id class="container" >
+  <form id="userForm" action="users" method="post">
+  <div class="row">
+    <div class="col-15">
+      <label for="name">Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="name" name="name" value=" " disabled>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-15">
+      <label for="lname">Email</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="email" name="email" value=" " disabled>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-15">
+      <label for="password">Password</label>
+    </div>
+    <div class="col-75">
+      <input type="password" id="pass" name="pass" value=" " disabled>
+    </div>
+  </div>
+<div class="row">
+    <div class="col-15">
+      <label for="userid">User id</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="userid" name="userid" value=" " readonly disabled>
+    </div>
+  </div>
+   
+  </form>
+   <button id="editBtn" onclick="edit()"> Edit</button>
+   <button id="confirmBtn" onclick="confirm()" disabled> Confirm</button>
+   <button id="deleteBtn" onclick="deleteUser()" disabled> Delete User</button>
+   <button id="cancelBtn" onclick="cancel()" disabled> Cancel </button>
+   <p id="error"></p>
+  </div>
+
+</body>
+<footer>
+ <p> Ricardo Muchacho. Ci:27849052 </p>
+</footer>
+<script src="static/scripts/users.js"></script>
+</html>

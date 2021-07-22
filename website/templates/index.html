@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <h1> Flask Gallery</h1>
+</head>
+
+<body>
+ <div class ="bg">
+ <div class="loginContainer">
+  <form id="logForm" action="login" method="post" enctype="application/x-www-form-urlencoded">
+ 
+   <label for= "name"> Name: </label><br>
+   <input type="text" id="name" name="name" required><br>
+    
+   <label for= "pass"> Password: </label><br>
+   <input type="password" id="pass" name="pass" required><br>
+    </form>
+    <button class=loginBtn id=logBtn onclick="login()"> Login</button> 
+    <p id="error"> </p>
+  </div>
+  <div class="regContainer"> 
+   <button id="regBtn" class="registerBtn" onclick="location.href='register'">Register</button>
+  </div>
+ </div>
+</body>
+
+<footer>
+ <p> Ricardo Muchacho. Ci:27849052 </p>
+</footer>
+
+<script src="static/scripts/index.js"></script>
+
+</html>
